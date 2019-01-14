@@ -12,6 +12,20 @@ const app = express();
 
 // the database
 const questions = [];
+/* establish a global connection with database */
+/*
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+              host     : 'localhost',
+              user     : 'root',
+              password : 'mindbewell',
+              database : 'login_test',
+            });
+
+connection.connect();
+
+global.db = connection;
+*/
 
 // enhance your app security with Helmet
 app.use(helmet());
