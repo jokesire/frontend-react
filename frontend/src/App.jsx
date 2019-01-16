@@ -7,33 +7,37 @@ import Questions from './Questions/Questions';
 import Callback from './Callback';
 import NewQuestion from './NewQuestion/NewQuestion';
 import SecuredRoute from './SecuredRoute/SecuredRoute';
+import SidePane from './SidePane/SidePane';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       checkingSession: true,
-    }
+    };
   }
 
   async componentDidMount() {
     if (this.props.location.pathname === '/callback') {
-      this.setState({checkingSession:false});
+      this.setState({ checkingSession: false });
       return;
     }
+
     try {
       await auth0Client.silentAuth();
       this.forceUpdate();
     } catch (err) {
       if (err.error !== 'login_required') console.log(err.error);
-    }
-    this.setState({checkingSession:false});
+    };
+
+    this.setState({ checkingSession: false });
   }
 
   render() {
     return (
       <div>
         <NavBar/>
+        <SidePane/>
         <Route exact path='/' component={Questions}/>
         <Route exact path='/question/:questionId' component={Question}/>
         <Route exact path='/callback' component={Callback}/>
