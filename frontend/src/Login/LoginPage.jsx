@@ -18,7 +18,7 @@ class LoginPage extends Component {
 
         <div className="col-md-6 p-0 bg-white h-md-100 loginarea">
           <div className="d-md-flex align-items-center h-md-100 p-5 justify-content-center">
-            <button type="button" class="btn btn-primary btn-lg">Click here to start</button>
+            <button type="button" class="btn btn-primary btn-lg" onClick={auth0Client.signIn}>Click here to start</button>
           </div>
         </div>
       </div>
