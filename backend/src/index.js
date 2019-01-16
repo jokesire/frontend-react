@@ -39,8 +39,23 @@ app.use(cors());
 // log HTTP requests
 app.use(morgan('combined'));
 
+// Checks validation of user
+const checkJwt = jwt({
+  secret: jwksRsa.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: `https://bk-tmp.auth0.com/.well-known/jwks.json`,
+  }),
+
+  // Validate the audience and the issuer.
+  audience: 'PVafIu9Q5QN65DiPByAFvCCJryY7n432',
+  issuer: `https://bk-tmp.auth0.com/`,
+  algorithms: ['RS256'],
+});
+
 // retrieve all questions
-app.get('/', (req, res) => {
+app.get('/', checkJwt, (req, res) => {
   const qs = questions.map(q => ({
     id: q.id,
     title: q.title,
@@ -51,30 +66,16 @@ app.get('/', (req, res) => {
 });
 
 // get a specific question
-app.get('/:id', (req, res) => {
+app.get('/:id', checkJwt, (req, res) => {
   const question = questions.filter(q => (q.id === parseInt(req.params.id)));
   if (question.length > 1) return res.status(500).send();
   if (question.length === 0) return res.status(404).send();
   res.send(question[0]);
 });
 
-const checkJwt = jwt({
-  secret: jwksRsa.expressJwtSecret({
-    cache: true,
-    rateLimit: true,
-    jwksRequestsPerMinute: 5,
-    jwksUri: `https://bk-tmp.auth0.com/.well-known/jwks.json`
-  }),
-
-  // Validate the audience and the issuer.
-  audience: 'PVafIu9Q5QN65DiPByAFvCCJryY7n432',
-  issuer: `https://bk-tmp.auth0.com/`,
-  algorithms: ['RS256']
-});
-
 // insert a new question
 app.post('/', checkJwt, (req, res) => {
-  const {title, description} = req.body;
+  const { title, description } = req.body;
   const newQuestion = {
     id: questions.length + 1,
     title,
@@ -88,7 +89,7 @@ app.post('/', checkJwt, (req, res) => {
 
 // insert a new answer to a question
 app.post('/answer/:id', checkJwt, (req, res) => {
-  const {answer} = req.body;
+  const { answer } = req.body;
 
   const question = questions.filter(q => (q.id === parseInt(req.params.id)));
   if (question.length > 1) return res.status(500).send();
