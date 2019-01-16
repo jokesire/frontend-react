@@ -13,39 +13,35 @@ function SidePane(props) {
         <ul class="list-unstyled components">
             <p>Menu</p>
             <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Settings</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li>
-                        <a href="#">Home 1</a>
+                        <a href="#">General</a>
                     </li>
                     <li>
-                        <a href="#">Home 2</a>
+                        <a href="#">Departments</a>
                     </li>
                     <li>
-                        <a href="#">Home 3</a>
+                        <a href="#">Permissions</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#">About</a>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Questions</a>
                 <ul class="collapse list-unstyled" id="pageSubmenu">
                     <li>
-                        <a href="#">Page 1</a>
+                        <a href="#">Questions List</a>
                     </li>
                     <li>
-                        <a href="#">Page 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 3</a>
+                        <a href="#">Question Branching</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#">Portfolio</a>
+                <a href="#">Results</a>
             </li>
             <li>
-                <a href="#">Contact</a>
+                <a href="#">Preview</a>
             </li>
         </ul>
     </nav>
