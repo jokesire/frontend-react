@@ -4,9 +4,9 @@ class Auth {
   constructor() {
     this.auth0 = new auth0.WebAuth({
       // the following three lines MUST be updated
-      domain: 'bk-tmp.auth0.com',
-      audience: 'https://bk-tmp.auth0.com/userinfo',
-      clientID: 'PVafIu9Q5QN65DiPByAFvCCJryY7n432',
+      domain: 'xigao.auth0.com',
+      audience: 'https://xigao.auth0.com/userinfo',
+      clientID: 'WWn3y87ghYLE9jbuC6h4Kr0szalJbISF',
       redirectUri: 'http://localhost:3000/callback',
       responseType: 'id_token',
       scope: 'openid profile',
@@ -60,7 +60,7 @@ class Auth {
   signOut() {
     this.auth0.logout({
       returnTo: 'http://localhost:3000',
-      clientID: 'PVafIu9Q5QN65DiPByAFvCCJryY7n432',
+      clientID: 'WWn3y87ghYLE9jbuC6h4Kr0szalJbISF',
     });
   }
 

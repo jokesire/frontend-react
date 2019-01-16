@@ -45,12 +45,12 @@ const checkJwt = jwt({
     cache: true,
     rateLimit: true,
     jwksRequestsPerMinute: 5,
-    jwksUri: `https://bk-tmp.auth0.com/.well-known/jwks.json`,
+    jwksUri: `https://xigao.auth0.com/.well-known/jwks.json`,
   }),
 
   // Validate the audience and the issuer.
-  audience: 'PVafIu9Q5QN65DiPByAFvCCJryY7n432',
-  issuer: `https://bk-tmp.auth0.com/`,
+  audience: 'WWn3y87ghYLE9jbuC6h4Kr0szalJbISF',
+  issuer: `https://xigao.auth0.com/`,
   algorithms: ['RS256'],
 });
 
