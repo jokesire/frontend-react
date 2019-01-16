@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {withRouter} from 'react-router-dom';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import auth0Client from '../Auth';
 import axios from 'axios';
 
@@ -35,7 +35,7 @@ class NewQuestion extends Component {
       title: this.state.title,
       description: this.state.description,
     }, {
-      headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
+      headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` },
     });
 
     this.props.history.push('/');
@@ -54,7 +54,8 @@ class NewQuestion extends Component {
                   <input
                     disabled={this.state.disabled}
                     type="text"
-                    onBlur={(e) => {this.updateTitle(e.target.value)}}
+                    onBlur={(e) => {this.updateTitle(e.target.value);}}
+
                     className="form-control"
                     placeholder="Give your question a title."
                   />
@@ -64,7 +65,8 @@ class NewQuestion extends Component {
                   <input
                     disabled={this.state.disabled}
                     type="text"
-                    onBlur={(e) => {this.updateDescription(e.target.value)}}
+                    onBlur={(e) => {this.updateDescription(e.target.value);}}
+
                     className="form-control"
                     placeholder="Give more context to your question."
                   />
@@ -72,7 +74,7 @@ class NewQuestion extends Component {
                 <button
                   disabled={this.state.disabled}
                   className="btn btn-primary"
-                  onClick={() => {this.submit()}}>
+                  onClick={() => {this.submit();}}>
                   Submit
                 </button>
               </div>
@@ -80,7 +82,7 @@ class NewQuestion extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

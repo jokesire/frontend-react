@@ -34,6 +34,10 @@ class App extends Component {
   }
 
   render() {
+    if (!auth0Client.isAuthenticated()) {
+      auth0Client.signIn();
+    }
+
     return (
       <div>
         <NavBar/>
@@ -42,8 +46,8 @@ class App extends Component {
         <Route exact path='/question/:questionId' component={Question}/>
         <Route exact path='/callback' component={Callback}/>
         <SecuredRoute path='/new-question'
-                      component={NewQuestion}
-                      checkingSession={this.state.checkingSession} />
+          component={NewQuestion}
+          checkingSession={this.state.checkingSession} />
       </div>
     );
   }

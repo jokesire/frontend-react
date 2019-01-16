@@ -9,7 +9,7 @@ class Auth {
       clientID: 'PVafIu9Q5QN65DiPByAFvCCJryY7n432',
       redirectUri: 'http://localhost:3000/callback',
       responseType: 'id_token',
-      scope: 'openid profile'
+      scope: 'openid profile',
     });
 
     this.getProfile = this.getProfile.bind(this);
@@ -42,15 +42,17 @@ class Auth {
         if (!authResult || !authResult.idToken) {
           return reject(err);
         }
+
         this.setSession(authResult);
         resolve();
       });
-    })
+    });
   }
 
   setSession(authResult) {
     this.idToken = authResult.idToken;
     this.profile = authResult.idTokenPayload;
+
     // set the time that the id token will expire at
     this.expiresAt = authResult.idTokenPayload.exp * 1000;
   }
