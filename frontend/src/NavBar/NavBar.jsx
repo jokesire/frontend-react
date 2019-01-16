@@ -1,28 +1,24 @@
-import React from "react";
-import { Link, withRouter } from "react-router-dom";
-import auth0Client from "../Auth";
+import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import auth0Client from '../Auth';
 
 function NavBar(props) {
   const signOut = () => {
     auth0Client.signOut();
-    props.history.replace("/");
+    props.history.replace('/');
   };
 
   return (
-    {
-        /* Page Content Holder */
-    },
-    (
       <div id="content">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-          <div class="container-fluid">
-            <button type="button" id="sidebarCollapse" class="navbar-btn">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+          <div className="container-fluid">
+            <button type="button" id="sidebarCollapse" className="navbar-btn">
               <span />
               <span />
               <span />
             </button>
             <button
-              class="btn btn-dark d-inline-block d-lg-none ml-auto"
+              className="btn btn-dark d-inline-block d-lg-none ml-auto"
               type="button"
               data-toggle="collapse"
               data-target="#navbarSupportedContent"
@@ -30,11 +26,11 @@ function NavBar(props) {
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
-              <i class="fas fa-align-justify" />
+              <i className="fas fa-align-justify" />
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="nav navbar-nav ml-auto">
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul className="nav navbar-nav ml-auto">
                 {!auth0Client.isAuthenticated() && (
                   <button className="btn btn-dark" onClick={auth0Client.signIn}>
                     Sign In
@@ -60,7 +56,6 @@ function NavBar(props) {
           </div>
         </nav>
       </div>
-    )
   );
 }
 

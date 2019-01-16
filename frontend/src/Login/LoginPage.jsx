@@ -1,12 +1,8 @@
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import auth0Client from '../Auth';
-import NavBar from '../NavBar/NavBar';
-import SidePane from '../SidePane/SidePane';
+import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import auth0Client from "../Auth";
 
 class LoginPage extends Component {
-
-
   render() {
     return (
       <div className="d-md-flex h-md-100 align-items-center">
@@ -18,7 +14,13 @@ class LoginPage extends Component {
 
         <div className="col-md-6 p-0 bg-white h-md-100 loginarea">
           <div className="d-md-flex align-items-center h-md-100 p-5 justify-content-center">
-            <button type="button" class="btn btn-primary btn-lg" onClick={auth0Client.signIn}>Click here to start</button>
+            <button
+              type="button"
+              class="btn btn-primary btn-lg"
+              onClick={auth0Client.signIn}
+            >
+              Click here to start
+            </button>
           </div>
         </div>
       </div>
