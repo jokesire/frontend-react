@@ -36,7 +36,6 @@ class App extends Component {
   render() {
     if (!auth0Client.isAuthenticated()) {
       auth0Client.signIn();
-      return null;
     }
 
     return (
