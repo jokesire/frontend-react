@@ -21,12 +21,12 @@ This will make your app accessible on the following URL: [`http://localhost:3000
 Make sure you are currently logged into Docker and then issue the following commands:
 
 ```bash
-docker build -t brunokrebs/react-tutorial .
+docker build -t username/react-tutorial .
 
-docker push brunokrebs/react-tutorial
+docker push username/react-tutorial
 ```
 
-In the code snippet above, you will need to replace `brunokrebs` with your own Docker username (unless you are me 😊).
+In the code snippet above, you will need to replace `username` with your own Docker username.
 
 If you do push a Docker image to [Docker Hub](https://hub.docker.com/), then you can use it like this:
 
