@@ -34,21 +34,11 @@ class App extends Component {
   }
 
   render() {
-<<<<<<< HEAD
-
-    return (
-    <div class="wrapper">
-        <SidePane/>
-        <div>
-        <NavBar/>
-        <Route exact path='/' component={Questions}/>
-=======
     return (
       <div>
         <Route exact path='/' component={LoginPage}/>
         <Route exact path='/frontpage' component={FrontPage}/>
         <Route exact path='/questions' component={Questions}/>
->>>>>>> 54df2fac5d149c0a0f41adf38a0532173ff5ee53
         <Route exact path='/question/:questionId' component={Question}/>
         <Route exact path='/callback' component={Callback}/>
         <SecuredRoute path='/new-question'

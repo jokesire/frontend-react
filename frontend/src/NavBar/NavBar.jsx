@@ -41,13 +41,13 @@ function NavBar(props) {
                         </li>
                         {
                           !auth0Client.isAuthenticated() &&
-                          <button classNameName="btn btn-dark" onClick={auth0Client.signIn}>Sign In</button>
+                          <button className="btn btn-dark" onClick={auth0Client.signIn}>Sign In</button>
                         }
                         {
                           auth0Client.isAuthenticated() &&
                           <div>
-                            <label classNameName="mr-2 text-white">{auth0Client.getProfile().name}</label>
-                            <button classNameName="btn btn-dark" onClick={()=> {signOut()}}>Sign Out</button>
+                            <label className="mr-2 text-white">{auth0Client.getProfile().name}</label>
+                            <button className="btn btn-dark" onClick={()=> {signOut()}}>Sign Out</button>
                           </div>
                         }
                     </ul>
