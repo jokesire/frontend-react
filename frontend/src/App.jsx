@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route, withRouter} from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import auth0Client from './Auth';
 import NavBar from './NavBar/NavBar';
 import Question from './Question/Question';
