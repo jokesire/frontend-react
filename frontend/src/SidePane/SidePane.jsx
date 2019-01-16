@@ -12,7 +12,7 @@ function SidePane(props) {
 
         <ul class="list-unstyled components">
             <p>Menu</p>
-            <li class="active">
+            <li>
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Settings</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">
                     <li>
