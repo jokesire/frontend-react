@@ -7,11 +7,11 @@ function SidePane(props) {
     {/* Sidebar  */},
     <nav id="sidebar">
         <div class="sidebar-header">
-            <h3>Bootstrap Sidebar</h3>
+            <h3>MindBeWell</h3>
         </div>
 
         <ul class="list-unstyled components">
-            <p>Dummy Heading</p>
+            <p>Menu</p>
             <li class="active">
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
                 <ul class="collapse list-unstyled" id="homeSubmenu">

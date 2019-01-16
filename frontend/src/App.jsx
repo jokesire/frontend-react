@@ -45,7 +45,7 @@ class App extends Component {
           component={NewQuestion}
           checkingSession={this.state.checkingSession} />
         </div>
-      </div>
+
     );
   }
 }

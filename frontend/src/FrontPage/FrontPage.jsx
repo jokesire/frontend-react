@@ -7,9 +7,9 @@ import SidePane from '../SidePane/SidePane';
 class LoginPage extends Component {
   render() {
     return (
-      <div>
-        <NavBar />
+      <div className= "wrapper">
         <SidePane />
+        <NavBar />
       </div>
     );
   }
