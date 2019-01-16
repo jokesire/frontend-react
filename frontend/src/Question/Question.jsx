@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import SubmitAnswer from './SubmitAnswer';
 import auth0Client from '../Auth';

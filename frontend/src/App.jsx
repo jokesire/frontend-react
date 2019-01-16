@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import auth0Client from './Auth';
-import NavBar from './NavBar/NavBar';
 import Question from './Question/Question';
 import Questions from './Questions/Questions';
 import Callback from './Callback';
 import NewQuestion from './NewQuestion/NewQuestion';
 import SecuredRoute from './SecuredRoute/SecuredRoute';
-import SidePane from './SidePane/SidePane';
+import LoginPage from './Login/LoginPage';
+import FrontPage from './FrontPage/FrontPage';
 
 class App extends Component {
   constructor(props) {
@@ -34,6 +34,7 @@ class App extends Component {
   }
 
   render() {
+<<<<<<< HEAD
 
     return (
     <div class="wrapper">
@@ -41,6 +42,13 @@ class App extends Component {
         <div>
         <NavBar/>
         <Route exact path='/' component={Questions}/>
+=======
+    return (
+      <div>
+        <Route exact path='/' component={LoginPage}/>
+        <Route exact path='/frontpage' component={FrontPage}/>
+        <Route exact path='/questions' component={Questions}/>
+>>>>>>> 54df2fac5d149c0a0f41adf38a0532173ff5ee53
         <Route exact path='/question/:questionId' component={Question}/>
         <Route exact path='/callback' component={Callback}/>
         <SecuredRoute path='/new-question'
