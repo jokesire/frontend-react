@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
+// Change <a href="roster.html"></a> to <Link to='/roster'></Link> 
+
 function SidePane(props) {
   return (
       <nav id="sidebar">

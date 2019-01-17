@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import auth0Client from './Auth';
 import Question from './Question/Question';
 import Questions from './Questions/Questions';
@@ -28,24 +28,54 @@ class App extends Component {
       this.forceUpdate();
     } catch (err) {
       if (err.error !== 'login_required') console.log(err.error);
-    };
+    }
 
     this.setState({ checkingSession: false });
   }
 
+  // <Route path='/roster'/>
+  // when the pathname is '/', the path does not match
+  // when the pathname is '/roster' or '/roster/2', the path matches
+
+  // <Route exact path='/roster'/>
+  // If you only want to match '/roster', then you need to use
+  // the "exact" prop. The following will match '/roster', but not
+  // '/roster/2'.
+
   render() {
     return (
       <div>
-        <Route exact path='/' component={LoginPage}/>
-        <Route exact path='/frontpage' component={FrontPage}/>
-        <Route exact path='/questions' component={Questions}/>
-        <Route exact path='/question/:questionId' component={Question}/>
-        <Route exact path='/callback' component={Callback}/>
-        <SecuredRoute path='/new-question'
+        <SecuredRoute
+          path="/"
+          component={LoginPage}
+          checkingSession={this.state.checkingSession}
+        />
+        <SecuredRoute
+          path="/frontpage"
+          component={FrontPage}
+          checkingSession={this.state.checkingSession}
+        />
+        <SecuredRoute
+          path="/questions"
+          component={Questions}
+          checkingSession={this.state.checkingSession}
+        />
+        <SecuredRoute
+          path="/question/:questionId"
+          component={Question}
+          checkingSession={this.state.checkingSession}
+        />
+        <SecuredRoute
+          path="/callback"
+          component={Callback}
+          checkingSession={this.state.checkingSession}
+        />
+        <SecuredRoute
+          path="/new-question"
           component={NewQuestion}
-          checkingSession={this.state.checkingSession} />
-        </div>
-
+          checkingSession={this.state.checkingSession}
+        />
+      </div>
     );
   }
 }
